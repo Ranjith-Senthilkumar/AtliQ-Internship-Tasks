@@ -2,7 +2,7 @@
 
 # Data Normalization and Cleaning with Pandas
 
-This repository contains Python code that demonstrates **data normalization** and **data cleaning** using **Pandas**. The goal is to take a denormalized dataset and transform it into a normalized form for better analysis and use in data warehouses.
+This repository contains Python code that demonstrates **data normalization** and **data cleaning** using **Pandas**. The goal is to take a denormalized dataset and transform it into a normalized form for better analysis.
 
 ## Overview
 
