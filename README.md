@@ -8,5 +8,5 @@ This repository contains Python code that demonstrates **data normalization** an
 
 In this project, we will:
 - **Normalize** a denormalized dataset into multiple related tables.[Denormalized file - ]
-- Perform **data cleaning** tasks such as handling missing values, correcting data types, and dealing with duplicates.[ Cleaned Data - ]
+- Perform **data cleaning** tasks such as handling missing values, correcting data types, and dealing with duplicates.[ Cleaned Data - https://github.com/Ranjith-Senthilkumar/AtliQ-Internship-week1/blob/main/Pandas%20data%20cleaning]
 - Normalized csv file - []
