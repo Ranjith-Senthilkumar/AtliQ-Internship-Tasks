@@ -1,1 +1,12 @@
 # AtliQ-Internship-Tasks
+
+# Data Normalization and Cleaning with Pandas
+
+This repository contains Python code that demonstrates **data normalization** and **data cleaning** using **Pandas**. The goal is to take a denormalized dataset and transform it into a normalized form for better analysis and use in data warehouses.
+
+## Overview
+
+In this project, we will:
+- **Normalize** a denormalized dataset into multiple related tables.[Denormalized file - ]
+- Perform **data cleaning** tasks such as handling missing values, correcting data types, and dealing with duplicates.[ Cleaned Data - ]
+- Normalized csv file - []
