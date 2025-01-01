@@ -1,0 +1,32 @@
+import pandas as pd
+
+# Load the dataset
+file_path = "C:\\Users\\ranji\\OneDrive\\Documents\\fact_order_lines.csv"
+df = pd.read_csv(file_path)
+
+# Inspect the first few rows of the dataset (optional)
+print(df.head())
+
+# Create the 'dim_customers' dimension table
+dim_customers = df[['customer_id', 'customer_name', 'city']].drop_duplicates()
+
+# Create the 'dim_date' dimension table
+dim_date = df[['order_placement_date', 'mmm_yy', 'week_no']].drop_duplicates()
+dim_date = dim_date.rename(columns={'order_placement_date': 'date'})  # Renaming to match the required column name
+
+# Create the 'dim_products' dimension table
+dim_products = df[['product_id', 'product_name', 'category']].drop_duplicates()
+
+# Create the 'fact_orders' fact table
+fact_orders = df[['order_id', 'order_placement_date', 'customer_id', 'product_id', 'delivery_qty', 'order_qty']]
+
+# Define the directory path to save the files
+save_path = "C:\\Users\\ranji\\OneDrive\\Documents\\"
+
+# Save the normalized tables to CSV
+dim_customers.to_csv(save_path + "dim_customers.csv", index=False)
+dim_date.to_csv(save_path + "dim_date.csv", index=False)
+dim_products.to_csv(save_path + "dim_products.csv", index=False)
+fact_orders.to_csv(save_path + "fact_orders.csv", index=False)
+
+print("Normalization complete. Tables saved in the specified directory.")
