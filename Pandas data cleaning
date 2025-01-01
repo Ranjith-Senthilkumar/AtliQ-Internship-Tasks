@@ -1,0 +1,39 @@
+import pandas as pd
+
+df = pd.read_csv('C:\\Users\\ranji\\OneDrive\\Documents\\Cleaned_dataa.csv')
+df
+
+df.columns = df.columns.str.capitalize()
+df.loc[:, 'Employee_id'] = df['Employee_id'].str.replace('@', '', regex=False)
+
+import pandas as pd 
+df['Date'] = pd.to_datetime(df['Date'], errors='coerce').dt.strftime('%Y-%m-%d')
+df['Month_Name'] = pd.to_datetime(df['Date'], format='%Y-%m-%d').dt.strftime('%B')
+df['Day_Type'] = pd.to_datetime(df['Date'], format='%Y-%m-%d').dt.day_name()
+
+df['Name'] = df['Name'].str.title()
+df.drop_duplicates(inplace=True)
+
+# Define the status mapping dictionary
+status_mapping = {
+    'Work From Office': 'WFO',
+    'Work From Home': 'WFH',
+    'Birthday Leave': 'BL',
+    'Menstrual Leave': 'ML',
+    'Paid Leave': 'PL',
+    'Sick Leave': 'SL',
+    'Weekly Off': 'WO'
+}
+
+df['Status'] = df['Status'].astype(str)
+
+df['Status'] = df['Status'].map(status_mapping)
+
+df['Status'] = df['Status'].fillna('Unknown')
+
+distinct_employee_count = df['Name'].nunique()
+print(f"Total count of distinct employee names: {distinct_employee_count}")
+
+file_path = 'C:\\Users\\ranji\\OneDrive\\Documents\\cleaned_dataa.csv'  # Full file path with file name
+df.to_csv(file_path, index=False)
+df
